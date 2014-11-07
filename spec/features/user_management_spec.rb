@@ -23,7 +23,7 @@ describe 'On the homepage' do
     it 'can log in' do
       visit '/'
       sign_in
-      expect(page).to have_content 'Welcome yvette@test.com'
+      expect(page).to have_content 'Sign Out'
     end
 
     it 'can log out' do

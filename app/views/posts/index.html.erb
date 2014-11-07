@@ -6,6 +6,9 @@
       <%= image_tag post.image.url(:thumb) %>
     <% end %>
     <%= post.description %>
+    <% if post.user_id != nil %>
+      <%= post.user.email %>
+    <% end %>
     <%= link_to 'Delete post', post_path(post), method: :delete %>
   <% end %>
 <% else %>

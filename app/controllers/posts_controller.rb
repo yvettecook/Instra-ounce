@@ -9,8 +9,14 @@ class PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:description, :image)
+    if user_signed_in?
+      @user_id = current_user.id
+    else
+      @user_id = nil
+    end
+    params.require(:post).permit(:description, :image).merge(user_id: @user_id)
   end
+
 
   def create
     Post.create(post_params)
