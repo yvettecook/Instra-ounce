@@ -43,6 +43,10 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+# Image management
+
+gem 'paperclip'
+
 # Testing
 
 gem 'rspec-rails', group: :test

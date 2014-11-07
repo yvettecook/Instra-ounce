@@ -1,2 +1,12 @@
-No posts yet
-<a href='#'>Add a post</a>
+<%= link_to 'Add a post', new_post_path %>
+
+<% if @posts.any? %>
+  <% @posts.each do |post| %>
+    <% if post.image != nil %>
+      <%= image_tag post.image.url(:thumb) %>
+    <% end %>
+    <%= post.description %>
+  <% end %>
+<% else %>
+  No posts yet
+<% end %>
