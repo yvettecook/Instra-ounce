@@ -17,9 +17,17 @@ Users can:
 ## Tools
 
 * Rails: 4.1.7
+* RSpec Rails
+* Capybara
 * ...
-* ...
-* ...
+* Devise
+
+
+## Usage
+
+git clone
+bundle install
+bin/rake db:create db:migrate
 
 
 ## Personal Goals
@@ -27,4 +35,4 @@ Users can:
 * TDD - including images(!)
 * Clean code, with short, concise, well named methods
 * Planned and Designed front end, finished to a reasonable standard with Bootstrap
-* Mindful programminf
+* Mindful programming
