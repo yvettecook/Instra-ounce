@@ -4,9 +4,23 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
+  def new
+    @post = Post.new
+  end
+
+  def post_params
+    params.require(:post).permit(:description, :image)
+  end
+
   def create
-    Post.create(params[:post].permit(:description, :image))
+    Post.create(post_params)
     redirect_to '/posts'
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to  '/posts'
   end
 
 end
