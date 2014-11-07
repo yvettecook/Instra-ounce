@@ -29,6 +29,12 @@ git clone
 bundle install
 bin/rake db:create db:migrate
 
+## Models
+
+* User
+* Post
+* Comment/description
+* Like
 
 ## Personal Goals
 
