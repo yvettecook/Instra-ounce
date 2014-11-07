@@ -22,13 +22,24 @@ describe 'On the homepage' do
 
     it 'can log in' do
       visit '/'
-      click_link 'Sign In'
-      fill_in 'Email', with: 'yvette@test.com'
-      fill_in 'Password', with: 'testtest'
-      click_button 'Log in'
+      sign_in
       expect(page).to have_content 'Welcome yvette@test.com'
     end
 
+    it 'can log out' do
+      visit '/'
+      sign_in
+      click_link 'Sign Out'
+      expect(page).to have_content 'Sign In'
+    end
+
+  end
+
+  def sign_in
+    click_link 'Sign In'
+    fill_in 'Email', with: 'yvette@test.com'
+    fill_in 'Password', with: 'testtest'
+    click_button 'Log in'
   end
 
 end
