@@ -11,8 +11,10 @@
     <% if post.user_id != nil %>
       <%= post.user.email %>
     <% end %>
-    <%= link_to 'Edit post', edit_post_path(post) %>
-    <%= link_to 'Delete post', post_path(post), method: :delete %>
+    <% if current_user.id == post.user_id %>
+      <%= link_to 'Edit post', edit_post_path(post) %>
+      <%= link_to 'Delete post', post_path(post), method: :delete %>
+    <% end %>
   <% end %>
 <% else %>
   No posts yet
