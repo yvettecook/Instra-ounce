@@ -5,6 +5,7 @@ describe 'On the post page' do
   context 'if there are no posts' do
 
     it 'should display a prompt to add a post' do
+      sign_in
       visit '/posts'
       expect(page).to have_content 'No posts yet'
       expect(page).to have_content 'Add a post'
@@ -12,7 +13,20 @@ describe 'On the post page' do
 
   end
 
-  context 'users can' do
+  context 'users must' do
+
+    it 'be signed in to posts ' do
+      visit '/posts'
+      expect(page).not_to have_content 'Add a post'
+    end
+
+  end
+
+  context 'logged in users can' do
+
+    before do
+      sign_in
+    end
 
     it 'upload a post with a description and photo' do
       visit '/posts'
@@ -49,6 +63,7 @@ describe 'On the post page' do
   end
 
   def sign_in
+    visit '/'
     User.create(email: 'yvette@test.com', password: 'testtest', password_confirmation: 'testtest')
     click_link 'Sign In'
     fill_in 'Email', with: 'yvette@test.com'

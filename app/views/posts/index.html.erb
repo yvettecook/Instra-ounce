@@ -1,4 +1,6 @@
-<%= link_to 'Add a post', new_post_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Add a post', new_post_path %>
+<% end %>
 
 <% if @posts.any? %>
   <% @posts.each do |post| %>
