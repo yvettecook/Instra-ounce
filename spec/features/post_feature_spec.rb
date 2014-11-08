@@ -72,12 +72,19 @@ describe 'On the post page' do
 
   context 'posts display' do
 
+    before do
+      User.create(id: 2, email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest')
+      Post.create(user_id: 2, description: 'Another sunset')
+    end
+
+    it 'all if not logged in' do
+      visit '/posts'
+      expect(page).to have_content 'Another sunset'
+    end
+
     it 'the email of the user that posted it' do
       visit '/posts'
-      sign_in
-      visit '/posts'
-      post_image
-      expect(page).to have_content 'yvette@test.com'
+      expect(page).to have_content 'test@test.com'
     end
 
   end
