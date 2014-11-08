@@ -3,21 +3,21 @@
 <% end %>
 
 <% if @posts.any? %>
-
+<ul>
   <% @posts.each do |post| %>
+    <li>
+      <% if post.image != nil %>
+        <%= image_tag post.image.url(:thumb) %>
+      <% end %>
 
-    <% if post.image != nil %>
-      <%= image_tag post.image.url(:thumb) %>
-    <% end %>
+      <%= link_to "#{post.description}", post_path(post) %>
+      <%= post.user.email %>
 
-    <%= link_to "#{post.description}", post_path(post) %>
-    <%= post.user.email %>
-
-    <%= link_to "Like", post_likes_path(post), method: :post, class: 'like-link' %>
-    <span class="likes_count"> <%= post.likes.count %></span> likes
-  
-
+      <%= link_to "Like", post_likes_path(post), class: 'likes-link' %>
+      <span class="likes_count"> <%= post.likes.count %> </span> likes
+    </li>
   <% end %>
+</ul>
 
 <% else %>
 
