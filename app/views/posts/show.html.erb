@@ -1,0 +1,13 @@
+<% if @post.image != nil %>
+  <%= image_tag @post.image.url(:thumb) %>
+<% end %>
+
+<%= @post.description %>
+
+<%= @post.user.email %>
+
+
+<% if user_signed_in? && current_user.id == @post.user_id %>
+  <%= link_to 'Edit post', edit_post_path(@post) %>
+  <%= link_to 'Delete post', post_path(@post), method: :delete %>
+<% end %>
