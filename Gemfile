@@ -46,6 +46,7 @@ gem 'devise'
 # Image management
 
 gem 'paperclip'
+gem 'aws-sdk'
 
 # Testing
 
