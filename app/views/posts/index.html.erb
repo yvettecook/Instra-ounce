@@ -13,9 +13,9 @@
     <%= link_to "#{post.description}", post_path(post) %>
     <%= post.user.email %>
 
-    <%= link_to "Like", post_likes_path(post), method: :post %>
-
-    <%= post.likes.count %> likes
+    <%= link_to "Like", post_likes_path(post), method: :post, class: 'like-link' %>
+    <span class="likes_count"> <%= post.likes.count %></span> likes
+  
 
   <% end %>
 

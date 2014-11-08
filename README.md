@@ -21,6 +21,9 @@ Users can:
 * Capybara
 * ...
 * Devise
+* PhantomJS
+* Poltergeist
+* Database Cleaner
 
 
 ## Usage

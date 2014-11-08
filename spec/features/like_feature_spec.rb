@@ -7,7 +7,7 @@ describe 'Users can like posts' do
     post_image
   end
 
-  it 'from the posts index page' do
+  it 'from the posts index page, which renders automatically', js: true do
     visit '/posts'
     click_link 'Like'
     expect(page).to have_content('1 like')
