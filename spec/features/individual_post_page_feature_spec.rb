@@ -13,4 +13,13 @@ describe 'On the individual post page' do
    expect(page).to have_content 'yvette@test.com'
   end
 
+  it 'allows users to place comments' do
+    visit '/posts'
+    click_link 'sunset'
+    click_link 'Comment'
+    fill_in 'Content', with: 'Bored of sunsets'
+    click_button 'Comment'
+    expect(page).to have_content 'Bored of sunsets'
+  end
+
 end
