@@ -35,11 +35,4 @@ describe 'On the homepage' do
 
   end
 
-  def sign_in
-    click_link 'Sign In'
-    fill_in 'Email', with: 'yvette@test.com'
-    fill_in 'Password', with: 'testtest'
-    click_button 'Log in'
-  end
-
 end

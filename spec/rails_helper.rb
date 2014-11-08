@@ -47,4 +47,21 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+
+  def post_image
+    click_link 'Add a post'
+    attach_file 'Image', File.join(Rails.root, 'spec', 'fixtures', 'files', 'sunset.jpeg')
+    fill_in 'Description', with: 'sunset'
+    click_button 'Post'
+  end
+
+  def sign_in
+    User.create(email: 'yvette@test.com', password: 'testtest', password_confirmation: 'testtest')
+    visit '/'
+    click_link 'Sign In'
+    fill_in 'Email', with: 'yvette@test.com'
+    fill_in 'Password', with: 'testtest'
+    click_button 'Log in'
+  end
+
 end

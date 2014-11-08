@@ -89,21 +89,6 @@ describe 'On the post page' do
 
   end
 
-  def post_image
-    click_link 'Add a post'
-    attach_file 'Image', File.join(Rails.root, 'spec', 'fixtures', 'files', 'sunset.jpeg')
-    fill_in 'Description', with: 'sunset'
-    click_button 'Post'
-  end
-
-  def sign_in
-    User.create(email: 'yvette@test.com', password: 'testtest', password_confirmation: 'testtest')
-    visit '/'
-    click_link 'Sign In'
-    fill_in 'Email', with: 'yvette@test.com'
-    fill_in 'Password', with: 'testtest'
-    click_button 'Log in'
-  end
-
+  
 
 end
