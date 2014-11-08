@@ -1,21 +1,10 @@
 require 'rails_helper'
 
-describe 'On the post page' do
-
-  context 'if there are no posts' do
-
-    it 'should display a prompt to add a post' do
-      sign_in
-      visit '/posts'
-      expect(page).to have_content 'No posts yet'
-      expect(page).to have_content 'Add a post'
-    end
-
-  end
+describe 'To interact with posts' do
 
   context 'users must' do
 
-    it 'be signed in to posts ' do
+    it 'be signed in to post' do
       visit '/posts'
       expect(page).not_to have_content 'Add a post'
     end
@@ -70,25 +59,6 @@ describe 'On the post page' do
 
   end
 
-  context 'posts display' do
 
-    before do
-      User.create(id: 2, email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest')
-      Post.create(user_id: 2, description: 'Another sunset')
-    end
-
-    it 'all if not logged in' do
-      visit '/posts'
-      expect(page).to have_content 'Another sunset'
-    end
-
-    it 'the email of the user that posted it' do
-      visit '/posts'
-      expect(page).to have_content 'test@test.com'
-    end
-
-  end
-
-  
 
 end
