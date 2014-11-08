@@ -18,7 +18,11 @@
 <ul>
   <% if @post.comments.any? %>
     <% @post.comments.each do |comment| %>
-      <li><%= comment.content %></li>
+      <li><%= comment.content %>
+      <% if comment.user_id != nil %>
+        <%= comment.user.email %>
+      <% end %>
+      </li>
     <% end %>
   <% end %>
 </ul>
