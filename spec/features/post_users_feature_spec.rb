@@ -13,7 +13,7 @@ describe 'To interact with posts' do
 
   context 'logged in users can' do
 
-    before do
+    before :each do
       sign_in
       visit '/posts'
       post_image
@@ -23,16 +23,21 @@ describe 'To interact with posts' do
       expect(page).to have_content 'sunset'
     end
 
-    it 'delete their own post' do
-      click_link 'Delete post'
-      expect(page).not_to have_content 'sunset'
-    end
 
     it 'edit their own post' do
+      visit '/posts'
+      click_link 'sunset'
       click_link 'Edit post'
       fill_in 'Description', with: 'stunning sunset'
       click_button 'Post'
       expect(page).to have_content 'stunning sunset'
+    end
+
+    it 'delete their own post' do
+      visit '/posts'
+      click_link 'sunset'
+      click_link 'Delete post'
+      expect(page).not_to have_content 'sunset'
     end
 
   end
@@ -41,19 +46,20 @@ describe 'To interact with posts' do
 
     before do
       User.create(id: 2, email: 'test@test.com', password: 'testtest', password_confirmation: 'testtest')
-      Post.create(user_id: 2, description: 'Another sunset')
+      Post.create(id: 2, user_id: 2, description: 'Another sunset')
     end
 
     it "delete other user's post" do
       sign_in
       visit '/posts'
+      click_link 'Another sunset'
       expect(page).to have_content 'Another sunset'
       expect(page).not_to have_content 'Delete post'
     end
 
     it "edit other user's post" do
       sign_in
-      visit '/posts'
+      visit '/posts/2'
       expect(page).not_to have_content 'Edit post'
     end
 

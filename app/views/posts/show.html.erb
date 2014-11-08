@@ -1,5 +1,5 @@
 <% if @post.image != nil %>
-  <%= image_tag @post.image.url(:thumb) %>
+  <%= image_tag @post.image.url(:original) %>
 <% end %>
 
 <%= @post.description %>
