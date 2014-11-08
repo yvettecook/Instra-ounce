@@ -26,19 +26,24 @@ describe 'On the post page' do
 
     before do
       sign_in
+      visit '/posts'
+      post_image
     end
 
     it 'upload a post with a description and photo' do
-      visit '/posts'
-      post_image
       expect(page).to have_content 'sunset'
     end
 
     it 'delete a post' do
-      visit '/posts'
-      post_image
       click_link 'Delete post'
       expect(page).not_to have_content 'sunset'
+    end
+
+    it 'edit a post' do
+      click_link 'Edit post'
+      fill_in 'Description', with: 'stunning sunset'
+      click_button 'Post'
+      expect(page).to have_content 'stunning sunset'
     end
 
   end
