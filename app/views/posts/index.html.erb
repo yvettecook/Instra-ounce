@@ -13,6 +13,10 @@
     <%= link_to "#{post.description}", post_path(post) %>
     <%= post.user.email %>
 
+    <%= link_to "Like", post_likes_path(post), method: :post %>
+
+    <%= post.likes.count %> likes
+
   <% end %>
 
 <% else %>

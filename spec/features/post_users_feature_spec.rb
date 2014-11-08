@@ -39,6 +39,7 @@ describe 'To interact with posts' do
       click_link 'Delete post'
       expect(page).not_to have_content 'sunset'
     end
+    
 
   end
 
