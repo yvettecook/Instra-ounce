@@ -1,26 +1,38 @@
+<div class='container'>
+
 <% if user_signed_in? %>
   <%= link_to 'Add a post', new_post_path %>
 <% end %>
 
 <% if @posts.any? %>
-<ul>
   <% @posts.each do |post| %>
-    <li>
+  <article>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= post.user.email %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
       <% if post.image != nil %>
         <%= image_tag post.image.url(:thumb) %>
       <% end %>
-
-      <%= link_to "#{post.description}", post_path(post) %>
-      <%= post.user.email %>
-
-      <%= link_to "Like", post_likes_path(post), class: 'likes-link' %>
-      <span class="likes_count"> <%= post.likes.count %> </span> likes
-    </li>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <%= link_to "#{post.description}", post_path(post) %>
+        <%= link_to "Like", post_likes_path(post), class: 'likes-link' %>
+        <span class="likes_count"> <%= post.likes.count %> </span> likes
+      </div>
+    </div>
+  </article>
   <% end %>
-</ul>
 
 <% else %>
 
   No posts yet
 
 <% end %>
+
+</div>

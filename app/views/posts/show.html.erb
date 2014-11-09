@@ -1,5 +1,5 @@
 <% if @post.image != nil %>
-  <%= image_tag @post.image.url(:original) %>
+  <%= image_tag @post.image.url(:medium) %>
 <% end %>
 
 <%= @post.description %>
@@ -12,6 +12,10 @@
   <%= link_to 'Delete post', post_path(@post), method: :delete %>
 <% end %>
 
+<%= link_to "Like", post_likes_path(@post), class: 'likes-link' %>
+<span class="likes_count"> <%= @post.likes.count %> </span> likes
+
+
 <%= link_to 'Comment', new_post_comment_path(@post) %>
 
 <h4>Comments</h4>
@@ -20,7 +24,7 @@
     <% @post.comments.each do |comment| %>
       <li><%= comment.content %>
       <% if comment.user_id != nil %>
-        <%= comment.user.email %>
+        (<%= comment.user.email %>)
       <% end %>
       </li>
     <% end %>
