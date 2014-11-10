@@ -50,6 +50,7 @@ gem 'aws-sdk'
 # Front end
 
 gem 'twitter-bootstrap-rails'
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Testing
 

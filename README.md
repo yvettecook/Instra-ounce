@@ -29,6 +29,7 @@ Users can:
 ## Usage
 
 git clone
+secrets.yml
 bundle install
 bin/rake db:create db:migrate
 

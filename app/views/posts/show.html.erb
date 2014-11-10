@@ -18,6 +18,9 @@
 
 <%= link_to 'Comment', new_post_comment_path(@post) %>
 
+<%= link_to "Buy Now",  new_charge_path, class: "btn btn-success" %>
+
+
 <h4>Comments</h4>
 <ul>
   <% if @post.comments.any? %>
