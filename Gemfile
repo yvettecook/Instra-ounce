@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '2.0.0'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -50,7 +51,6 @@ gem 'aws-sdk'
 # Front end
 
 gem 'twitter-bootstrap-rails'
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
 # Testing
 
@@ -58,3 +58,5 @@ gem 'rspec-rails', group: :test
 gem 'capybara', group: :test
 gem 'poltergeist', group: :test
 gem 'database_cleaner', group: :test
+gem 'sass', '~> 3.2.19'
+gem 'sass-rails', '~> 4.0.4'
