@@ -29,14 +29,14 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(params[:post].permit(:description, :image))
+    @post.update(params[:post].permit(:description, :image, :price))
     redirect_to '/posts'
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:description, :image).merge(user_id: get_user_id)
+    params.require(:post).permit(:description, :image, :price).merge(user_id: get_user_id)
   end
 
   def get_user_id

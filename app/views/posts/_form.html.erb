@@ -3,5 +3,7 @@
   <%= f.file_field :image %>
   <%= f.label :description %>
   <%= f.text_field :description %>
+  <%= f.label :price %>
+  <%= f.number_field :price, in: 1..50, :placeholder => "£" %>
   <%= f.submit %>
 <% end %>
