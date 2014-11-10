@@ -60,3 +60,4 @@ gem 'poltergeist', group: :test
 gem 'database_cleaner', group: :test
 gem 'sass', '~> 3.2.19'
 gem 'sass-rails', '~> 4.0.4'
+gem 'stripe'
